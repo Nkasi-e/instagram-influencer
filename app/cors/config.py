@@ -1,3 +1,4 @@
+from typing import Any
 from pydantic import BaseSettings
 from pathlib import Path
 
@@ -13,7 +14,7 @@ class Settings(BaseSettings):
     DATABASE_USERNAME: str
     JWT_SECRET_KEY: str
     ALGORITHM: str
-    ACCESS_TOKEN_EXPIRATION: str
+    ACCESS_TOKEN_EXPIRATION: int
 
     class Config:
         env_file = f'{PARENT_DIR}/.env'
