@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "instagram-influence-africa"
 version = "0.1.0"
-description = "Instagram Influence Africa task"
+description = "Instagram infuencer search portal: Influence Africa task"
 authors = ["Nkasi-e <nkasijnr@gmail.com>"]
 readme = "README.md"
-packages = [{include = "instagram_influence_africa"}]
+packages = [{include = "instagram_influencer_search_portal"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,6 +13,8 @@ sqlalchemy = "^2.0.3"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 psycopg2 = "^2.9.5"
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
 
 
 [build-system]
