@@ -1,18 +1,6 @@
-import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from dotenv import load_dotenv
 from app.cors.config import settings
-
-load_dotenv(".env")
-
-# DATABASE_NAME = os.environ.get("DATABASE_NAME")
-# DATABASE_USERNAME = os.environ.get("DATABASE_USERNAME")
-# DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
-# DATABASE_HOSTNAME = os.environ.get("DATABASE_HOSTNAME")
-# DATABASE_PORT = os.environ.get("DATABASE_PORT")
-
-# print(DATABASE_PORT)
 
 
 SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}"

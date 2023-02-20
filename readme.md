@@ -31,6 +31,7 @@
 | followers  | Integer       | required                             | None       |
 | bio        | String(100)   | optional, default value set to None  | None       |
 | created_at | timestamp     | required, automatically set          | None       |
+| owner_id   | Integer       | required, ForeignKey                 | None       |
 
 ### Home Page
 
@@ -42,7 +43,7 @@
 
 ```json
 {
-  "message": "Welcome to Instagram Influencer"
+  "message": "Welcome to Instagram Influencer search portal"
 }
 ```
 

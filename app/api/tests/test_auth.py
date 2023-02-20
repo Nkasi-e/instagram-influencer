@@ -8,7 +8,7 @@ def test_root(client):
     res = client.get("/")
     assert (
         res.json()["Message"]
-        == "Welcome to Instagram Influencer"
+        == "Welcome to Instagram Influencer search portal"
     )
     assert res.status_code == 200
 

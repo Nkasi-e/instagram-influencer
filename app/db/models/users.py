@@ -26,5 +26,5 @@ class Profile(Base):
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text('now()'))
     owner_id = Column(Integer, ForeignKey(
-        'users.id', ondelete="SET NULL"), nullable=False)
+        'users.id', ondelete="SET NULL"), nullable=False, unique=True)
     owner = relationship('User', back_populates='profile')

@@ -36,4 +36,4 @@ app.include_router(api_router)
 
 @app.get('/')
 def root():
-    return {"Message": "Welcome to Instagram Influencer"}
+    return {"Message": "Welcome to Instagram Influencer search portal"}
