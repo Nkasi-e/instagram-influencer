@@ -15,7 +15,7 @@ load_dotenv(".env")
 # print(DATABASE_PORT)
 
 
-SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}"
+SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}"
 
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, future=True)
