@@ -11,9 +11,6 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
 
-# JWT_SECRET_KEY = settings.JWT_SECRET_KEY
-# ALGORITHM = settings.ALGORITHM
-# ACCESS_TOKEN_EXPIRATION = settings.ACCESS_TOKEN_EXPIRATION
 oauth2_schema = OAuth2PasswordBearer(tokenUrl="login")
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

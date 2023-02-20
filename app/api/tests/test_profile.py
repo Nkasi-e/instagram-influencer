@@ -41,3 +41,13 @@ def test_unauthenticated_user_cannot_create_profile(client):
     res = client.post('/profile/', json=profile_data)
     assert res.status_code == 401
     assert res.json()['detail'] == "Not authenticated"
+
+
+def test_user_to_create_multiple_profile(authorized_user, test_profile):
+    profile_data = {
+        "username": "duplicateProfile",
+        "followers": 30
+    }
+    res = authorized_user.post('/profile/', json=profile_data)
+    assert res.status_code == 403
+    assert res.json()['detail'] == f'Users cannot have more than one profile'
