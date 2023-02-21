@@ -5,16 +5,16 @@ on: [push, pull_request]
 jobs:
   build:
     environment:
-      name: test
+      name: build
     env:
       DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
       DATABASE_PORT: ${{secrets.DATABASE_PORT}}
       DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
       DATABASE_NAME: ${{secrets.DATABASE_NAME}}
       DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
-      SECRET_KEY: ${{secrets.SECRET_KEY}}
+      JWT_SECRET_KEY: ${{secrets.JWT_SECRET_KEY}}
       ALGORITHM: ${{secrets.ALGORITHM}}
-      ACCESS_TOKEN_EXPIRES_IN: ${{secrets.ACCESS_TOKEN_EXPIRES_IN}}
+      ACCESS_TOKEN_EXPIRATION: ${{secrets.ACCESS_TOKEN_EXPIRATION}}
 
     runs-on: ubuntu-latest
     steps:
@@ -29,3 +29,5 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: run tests
+        run: pytest -v
