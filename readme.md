@@ -12,7 +12,7 @@
 
 ## API Documentation
 
-- API allows visitors to search for profile username and bio, and profile counts which can either be minimum or maximum followers count, and also allows only authorized users to create a profile.
+- API allows visitors to search for profile username and bio, and profile counts which can either be minimum or maximum followers count, and also allows only authorized users are allowed to create a profile.
 
 ### Models <br>
 
