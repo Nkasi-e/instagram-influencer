@@ -6,10 +6,13 @@
 
 - [x] Users can create account with just email and password
 - [x] Authenticated users can create profile, providing username, followers count and bio
-- [x] visitors can use the search endpoint to search text, bio, minimum followers count and maximum followers count
+- [x] One user is liable to have a single profile, that means a user cannot create multiple profiles
+- [x] visitors can use the search endpoint to search text in username and bio, minimum followers count and maximum followers count
 - [x] search result returns a list of profiles that meets the search criterial
 
 ## API Documentation
+
+- API allows visitors to search for profile username and bio, and profile counts which can either be minimum or maximum followers count, and also allows only authorized users to create a profile.
 
 ### Models <br>
 
@@ -31,7 +34,7 @@
 | followers  | Integer       | required                             | None       |
 | bio        | String(100)   | optional, default value set to None  | None       |
 | created_at | timestamp     | required, automatically set          | None       |
-| owner_id   | Integer       | required, ForeignKey                 | None       |
+| owner_id   | Integer       | required, ForeignKey, Unique         | None       |
 
 ### Home Page
 
@@ -207,7 +210,7 @@
 
 ### Prerequisites
 
-In order to  run this project locally, you would need to have the following installed on your local machine.
+In order to run this project locally, you would need to have the following installed on your local machine.
 
 - Python ^3.10,
 - PostgreSQL
@@ -217,7 +220,7 @@ In order to  run this project locally, you would need to have the following inst
 
 - Clone this repository
 
-```
+```bash
 git clone [https://github.com/Nkasi-e/instagram-influencer.git]
 
 ```
@@ -229,6 +232,6 @@ git clone [https://github.com/Nkasi-e/instagram-influencer.git]
 
 - run ```uvicorn app.main:app --reload```
 
-### to start up container
+### to start up container in detached mode
 
 - run ```docker-compose -f decker-compose-dev.yml up -d```
