@@ -1,4 +1,4 @@
-name: build
+name: Instagram search Portal
 
 on: [push, pull_request]
 
