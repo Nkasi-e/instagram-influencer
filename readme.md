@@ -1,6 +1,6 @@
 # INSTAGRAM INFLUENCER SEARCH PORTAL
 
-[![Instagram search Portal](https://github.com/Nkasi-e/instagram-influencer/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/Nkasi-e/instagram-influencer/actions/workflows/build-deploy.yml) <a href='https://coveralls.io/github/Nkasi-e/instagram-influencer?branch=update-branch'><img src='https://coveralls.io/repos/github/Nkasi-e/instagram-influencer/badge.svg?branch=update-branch' alt='Coverage Status' /></a>
+[![build](https://github.com/Nkasi-e/instagram-influencer/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/Nkasi-e/instagram-influencer/actions/workflows/build-deploy.yml) <a href='https://coveralls.io/github/Nkasi-e/instagram-influencer?branch=update-branch'><img src='https://coveralls.io/repos/github/Nkasi-e/instagram-influencer/badge.svg?branch=update-branch' alt='Coverage Status' /></a>
 
 ## Features
 
@@ -12,7 +12,7 @@
 
 ## API Documentation
 
-- API allows visitors to search for profile username and bio, and profile counts which can either be minimum or maximum followers count, and also allows only authorized users are allowed to create a profile.
+> API allows visitors to search for profile username and bio, and profile counts which can either be minimum or maximum followers count, and also allows only authorized users to create profile.
 
 ### Models <br>
 
