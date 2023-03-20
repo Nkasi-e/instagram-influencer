@@ -14,10 +14,10 @@ app = FastAPI(
     version="0.1.0",
     terms_of_service="http://github.com/nkasi-e/instagram-influencer",
     contact={
-            "name": "Nkasi Emmanuel",
-            "email": "emmanuelnkasi@gmail.com",
-            "url": "http://github.com/nkasi-e/instagram-influencer"
-    }
+        "name": "Nkasi Emmanuel",
+        "email": "emmanuelnkasi@gmail.com",
+        "url": "http://github.com/nkasi-e/instagram-influencer",
+    },
 )
 
 origins = ["*"]
@@ -34,6 +34,6 @@ app.add_middleware(
 app.include_router(api_router)
 
 
-@app.get('/')
+@app.get("/")
 def root():
     return {"Message": "Welcome to Instagram Influencer search portal"}

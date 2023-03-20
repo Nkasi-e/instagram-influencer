@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRATION: int
 
     class Config:
-        env_file = f'{PARENT_DIR}/.env'
+        env_file = f"{PARENT_DIR}/.env"
 
 
 settings = Settings()
