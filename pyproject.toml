@@ -17,6 +17,7 @@ pytest-cov = "^4.0.0"
 coveralls = "^3.3.1"
 psycopg2-binary = "^2.9.5"
 psycopg2 = "^2.9.5"
+black = "^23.1.0"
 
 
 [build-system]

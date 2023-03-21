@@ -6,18 +6,12 @@ from jose import jwt
 
 def test_root(client):
     res = client.get("/")
-    assert (
-        res.json()["Message"]
-        == "Welcome to Instagram Influencer search portal"
-    )
+    assert res.json()["Message"] == "Welcome to Instagram Influencer search portal"
     assert res.status_code == 200
 
 
 def test_create_user(client):
-    user_in = {
-        "email": "test@gmail.com",
-        "password": "Password123"
-    }
+    user_in = {"email": "test@gmail.com", "password": "Password123"}
     res = client.post("/account/signup", json=user_in)
     new_user = user.UserResponseSchema(**res.json())
     assert new_user.email == "test@gmail.com"
@@ -34,8 +28,9 @@ def test_user_login(client, test_user):
     )
     login_response = user.TokenResponseSchema(**res.json())
     payload = jwt.decode(
-        login_response.access_token, settings.JWT_SECRET_KEY, algorithms=[
-            settings.ALGORITHM]
+        login_response.access_token,
+        settings.JWT_SECRET_KEY,
+        algorithms=[settings.ALGORITHM],
     )
     id = payload["user_id"]
     assert id == test_user["id"]
@@ -45,13 +40,10 @@ def test_user_login(client, test_user):
 
 
 def test_duplicate_email_error(client, test_user):
-    user_in = {
-        "email": test_user['email'],
-        "password": test_user['password']
-    }
+    user_in = {"email": test_user["email"], "password": test_user["password"]}
     res = client.post("/account/signup", json=user_in)
     assert res.status_code == 409
-    assert res.json()['detail'] == f"email already exists"
+    assert res.json()["detail"] == f"email already exists"
 
 
 @pytest.mark.parametrize(
@@ -63,11 +55,9 @@ def test_duplicate_email_error(client, test_user):
     ],
 )
 def test_failed_login(client, email, password, status_code, error_message):
-    res = client.post(
-        "/login/", json={"email": email, "password": password}
-    )
+    res = client.post("/login/", json={"email": email, "password": password})
     assert res.status_code == status_code
-    assert res.json()['detail'] == error_message
+    assert res.json()["detail"] == error_message
 
 
 @pytest.mark.parametrize(
@@ -78,7 +68,5 @@ def test_failed_login(client, email, password, status_code, error_message):
     ],
 )
 def test_failed_login_missing_field(client, email, password, status_code):
-    res = client.post(
-        "/login/", json={"email": email, "password": password}
-    )
+    res = client.post("/login/", json={"email": email, "password": password})
     assert res.status_code == status_code

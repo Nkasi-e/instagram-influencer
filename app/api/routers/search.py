@@ -10,12 +10,20 @@ from app.db.models.users import Profile
 router = APIRouter()
 
 
-@router.get('/search', response_model=List[profile.ProfileResponseSchema], status_code=200)
-def search(text: Optional[str] = '', min_followers: Optional[int] = None, max_followers: Optional[int] = None, db: Session = Depends(get_db)):
+@router.get(
+    "/search", response_model=List[profile.ProfileResponseSchema], status_code=200
+)
+def search(
+    text: Optional[str] = "",
+    min_followers: Optional[int] = None,
+    max_followers: Optional[int] = None,
+    db: Session = Depends(get_db),
+):
     query = db.query(Profile)
     if text:
-        query = query.filter(or_(Profile.username.ilike(
-            f"%{text}%"), Profile.bio.ilike(f"%{text}%")))
+        query = query.filter(
+            or_(Profile.username.ilike(f"%{text}%"), Profile.bio.ilike(f"%{text}%"))
+        )
     if min_followers:
         query = query.filter(Profile.followers >= min_followers)
     if max_followers:
